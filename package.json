@@ -1,0 +1,31 @@
+{
+  "name": "autohome_sched_webserver",
+  "version": "0.0.1",
+  "description": "NodeJS webserver to schedule daily actions based on time like turn-on lights.",
+  "license": "GPL",
+  "keywords": [
+    "https",
+    "http",
+    "home automation",
+    "schedule",
+    "lights control"
+  ],
+  "engines": {
+    "node": ">=0.12.0"
+  },
+  "author": {
+    "name": "@metbosch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/metbosch/autohome_sched_webserver.git"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "logops": "^2.0.0",
+    "node-cron": "^1.1.3",
+    "node-persist": "^2.0.11",
+    "timeout": "^0.2.1"
+  }
+}
