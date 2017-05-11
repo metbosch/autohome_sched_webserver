@@ -80,23 +80,23 @@
     <div class="form-group">
       <div class="input-group">
         <span class="input-group-addon" id="basic-addon1">Start time</span>
-        <input id="time_ini_h" [(ngModel)]="newSched.time_ini_h" type="number" class="form-control" placeholder="HH (00 - 23)" aria-describedby="basic-addon1">
-        <input id="time_ini_m" [(ngModel)]="newSched.time_ini_m" type="number" class="form-control" placeholder="MM (00 - 59)" aria-describedby="basic-addon1">
+        <input id="time_ini_h" [(ngModel)]="newSched.time_ini_h" type="number" min="0" max="23" class="form-control" placeholder="HH (00 - 23)" aria-describedby="basic-addon1">
+        <input id="time_ini_m" [(ngModel)]="newSched.time_ini_m" type="number" min="0" max="59" class="form-control" placeholder="MM (00 - 59)" aria-describedby="basic-addon1">
       </div>
       <div class="input-group">
         <span class="input-group-addon" id="basic-addon1">Stop time</span>
-        <input id="time_end_h" [(ngModel)]="newSched.time_end_h" type="number" class="form-control" placeholder="HH (00 - 23)" aria-describedby="basic-addon1">
-        <input id="time_end_m" [(ngModel)]="newSched.time_end_m" type="number" class="form-control" placeholder="MM (00 - 59)" aria-describedby="basic-addon1">
+        <input id="time_end_h" [(ngModel)]="newSched.time_end_h" type="number" min="0" max="23" class="form-control" placeholder="HH (00 - 23)" aria-describedby="basic-addon1">
+        <input id="time_end_m" [(ngModel)]="newSched.time_end_m" type="number" min="0" max="59" class="form-control" placeholder="MM (00 - 59)" aria-describedby="basic-addon1">
       </div>
     </div>
     <div class="form-group">
       <div class="input-group">
         <span class="input-group-addon" id="basic-addon1">Period ON</span>
-        <input id="period_on" [(ngModel)]="newSched.period_on" type="number" class="form-control" placeholder="Minutes in ON" aria-describedby="basic-addon1">
+        <input id="period_on" [(ngModel)]="newSched.period_on" type="number" min="-1" class="form-control" placeholder="Minutes in ON" aria-describedby="basic-addon1">
       </div>
       <div class="input-group">
         <span class="input-group-addon" id="basic-addon1">Period OFF</span>
-        <input id="period_off" [(ngModel)]="newSched.period_off" type="number" class="form-control" placeholder="Minutes in OFF" aria-describedby="basic-addon1">
+        <input id="period_off" [(ngModel)]="newSched.period_off" type="number" min="-1" class="form-control" placeholder="Minutes in OFF" aria-describedby="basic-addon1">
       </div>
     </div>
     <div class="form-group">
