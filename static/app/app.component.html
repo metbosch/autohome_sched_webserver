@@ -1,0 +1,118 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Autosched</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li *ngFor="let dev of devs" [ngClass]="{'active': selectedDev == dev}" (click)="selectDev(dev)">
+          <a href="#">{{ dev.fullname }}<span *ngIf="selectedDev == dev" class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div *ngIf="alertSuccess" class="alert alert-success" role="alert">
+  <a href="#" class="alert-link">{{ alertSuccess }}</a>
+</div>
+<div *ngIf="alertError" class="alert alert-danger" role="alert">
+  <a href="#" class="alert-link">{{ alertError }}</a>
+</div>
+
+<div *ngIf="selectedDev" class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+      Scheduled events for {{ selectedDev.fullname }}
+    </h3>
+  </div>
+
+  <!-- Table -->
+  <table class="table">
+    <tr>
+      <!--th>#</th-->
+      <th>Start time</th>
+      <th>Stop time</th>
+      <th>Period ON</th>
+      <th>Period OFF</th>
+      <th>Start inc</th>
+      <th>Stop inc</th>
+      <th>Options</th>
+    </tr>
+    <tr *ngFor="let schd of schedules; let id=index">
+      <!--td>{{schd.id}}</td-->
+      <td>{{schd.time_ini_h}}:{{schd.time_ini_m}}</td>
+      <td>{{schd.time_end_h}}:{{schd.time_end_m}}</td>
+      <td>{{schd.period_on}}</td>
+      <td>{{schd.period_off}}</td>
+      <td>{{schd.inc_ini}}</td>
+      <td>{{schd.inc_end}}</td>
+      <td>
+        <button type="button" value=" Delete" class="btn btn-default" aria-label="Left Align" (click)="deleteSched(id)">
+          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+          Delete
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div class="panel panel-default" *ngIf="selectedDev">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+      Add new event for {{ selectedDev.fullname }}
+    </h3>
+  </div>
+  <div class="panel-body">
+    <div>
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Start time</span>
+        <input id="time_ini_h" [(ngModel)]="newSched.time_ini_h" type="number" class="form-control" placeholder="HH (00 - 23)" aria-describedby="basic-addon1">
+        <input id="time_ini_m" [(ngModel)]="newSched.time_ini_m" type="number" class="form-control" placeholder="MM (00 - 59)" aria-describedby="basic-addon1">
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Stop time</span>
+        <input id="time_end_h" [(ngModel)]="newSched.time_end_h" type="number" class="form-control" placeholder="HH (00 - 23)" aria-describedby="basic-addon1">
+        <input id="time_end_m" [(ngModel)]="newSched.time_end_m" type="number" class="form-control" placeholder="MM (00 - 59)" aria-describedby="basic-addon1">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Period ON</span>
+        <input id="period_on" [(ngModel)]="newSched.period_on" type="number" class="form-control" placeholder="Minutes in ON" aria-describedby="basic-addon1">
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Period OFF</span>
+        <input id="period_off" [(ngModel)]="newSched.period_off" type="number" class="form-control" placeholder="Minutes in OFF" aria-describedby="basic-addon1">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Start increment</span>
+        <input id="inc_ini" [(ngModel)]="newSched.inc_ini" type="number" class="form-control" placeholder="Daily start variation (minutes)" aria-describedby="basic-addon1">
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Stop increment</span>
+        <input id="inc_end" [(ngModel)]="newSched.inc_end" type="number" class="form-control" placeholder="Daily stop variation (minutes)" aria-describedby="basic-addon1">
+      </div>
+    </div>
+    <button type="button" value=" Create" class="btn btn-default" aria-label="Left Align" (click)="createSched()">
+      <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+      Create
+    </button>
+    </div>
+  </div>
+</div>
