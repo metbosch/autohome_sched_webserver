@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "body-parser": "^1.17.1",
+    "config": "^1.26.1",
     "express": "^4.15.2",
     "logops": "^2.0.0",
     "node-cron": "^1.1.3",

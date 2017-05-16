@@ -1,0 +1,11 @@
+{
+  "port": "8080",
+  "https": {
+    "port": "8443",
+    "ca": [
+      "/home/orangepi/.ssl/ca-crt.pem"
+    ],
+    "cert": "/home/orangepi/.ssl/server-crt.pem",
+    "key": "/home/orangepi/.ssl/server-key.pem"
+  }
+}
