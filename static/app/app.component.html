@@ -50,7 +50,7 @@
       <th>Stop inc</th>
       <th>Options</th>
     </tr>
-    <tr *ngFor="let schd of schedules; let id=index">
+    <tr *ngFor="let schd of schedules">
       <!--td>{{schd.id}}</td-->
       <td>{{schd.time_ini_h}}:{{schd.time_ini_m}}</td>
       <td>{{schd.time_end_h}}:{{schd.time_end_m}}</td>
@@ -59,7 +59,7 @@
       <td>{{schd.inc_ini}}</td>
       <td>{{schd.inc_end}}</td>
       <td>
-        <button type="button" value=" Delete" class="btn btn-default" aria-label="Left Align" (click)="deleteSched(id)">
+        <button type="button" value=" Delete" class="btn btn-default" aria-label="Left Align" (click)="deleteSched(schd.id)">
           <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
           Delete
         </button>

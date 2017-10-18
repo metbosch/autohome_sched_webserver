@@ -3,9 +3,9 @@
   "https": {
     "port": "8443",
     "ca": [
-      "/home/orangepi/.ssl/ca-crt.pem"
+      "config/ca.crt"
     ],
-    "cert": "/home/orangepi/.ssl/server-crt.pem",
-    "key": "/home/orangepi/.ssl/server-key.pem"
+    "cert": "config/server.crt",
+    "key": "config/server.key"
   }
 }
